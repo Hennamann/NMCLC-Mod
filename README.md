@@ -1,4 +1,6 @@
 # NMCLC – (NoMoreCapsLockCommands)
+![](src/main/resources/logo.png)
+
 A small Minecraft mod that converts incorrect uppercase commands to proper lowercase commands
 
 # About
