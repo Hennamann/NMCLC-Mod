@@ -87,7 +87,9 @@ processResources {
         exclude 'mcmod.info'
     }
     
-    jar {
+ }
+    
+jar {
     classifier = 'universal'
 }
 
@@ -140,5 +142,4 @@ publishing {
 artifacts {
     archives sourcesJar
     archives deobfJar
-}
 }
