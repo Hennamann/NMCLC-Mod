@@ -11,3 +11,9 @@ This mod does not need to be installed on servers, as it's using purely clientsi
 
 # Downloads
 Downloads can be found on Curse: soon(tm)
+
+## License
+This mod is licensed with the European Union Public License version 1.2 (EUPL-1.2)
+
+
+[License](LICENSE.MD)
