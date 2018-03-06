@@ -1,5 +1,6 @@
 package com.henrikstabell.nmclc;
 
+import net.minecraftforge.classloading.FMLForgePlugin;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
 import java.util.Map;
@@ -13,6 +14,8 @@ import java.util.Map;
 @IFMLLoadingPlugin.DependsOn("forge")
 @IFMLLoadingPlugin.SortingIndex(1002)
 public class NMCLCCoreMod implements IFMLLoadingPlugin {
+
+    public static boolean obfuscatedEnvironment = false;
 
     @Override
     public String[] getASMTransformerClass() {
@@ -30,7 +33,9 @@ public class NMCLCCoreMod implements IFMLLoadingPlugin {
     }
 
     @Override
-    public void injectData(Map<String, Object> data) {}
+    public void injectData(Map<String, Object> data) {
+        obfuscatedEnvironment = (Boolean)data.get("runtimeDeobfuscationEnabled");
+    }
 
     @Override
     public String getAccessTransformerClass() {

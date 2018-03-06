@@ -21,6 +21,8 @@ public class TransformerGuiScreen implements IClassTransformer {
         if (transformedName.equals(TARGET_CLASS)) {
             ClassNode cnode = createClassNode(bytes);
 
+            boolean obf = NMCLCCoreMod.obfuscatedEnvironment;
+
             for (MethodNode method : cnode.methods) {
                 if (method.name.equalsIgnoreCase(TARGET_METHOD) && method.desc.equalsIgnoreCase(TARGET_DESCRIPTOR) || method.name.equalsIgnoreCase(TARGET_METHOD_2) && method.desc.equalsIgnoreCase(TARGET_DESCRIPTOR)) {
                     System.out.println("Patching method " + TARGET_METHOD + " in class " + TARGET_CLASS);
@@ -64,18 +66,18 @@ public class TransformerGuiScreen implements IClassTransformer {
                     method.visitLabel(l6);
                     method.visitLineNumber(29, l6);
                     method.visitVarInsn(Opcodes.ALOAD, 0);
-                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/gui/GuiScreen", "mc", "Lnet/minecraft/client/Minecraft;");
-                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/Minecraft", "ingameGUI", "Lnet/minecraft/client/gui/GuiIngame;");
-                    method.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "net/minecraft/client/gui/GuiIngame", "getChatGUI", "()Lnet/minecraft/client/gui/GuiNewChat;", false);
+                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/gui/GuiScreen", obf ? "field_146297_k" : "mc", "Lnet/minecraft/client/Minecraft;");
+                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/Minecraft", obf ? "field_71456_v" : "ingameGUI", "Lnet/minecraft/client/gui/GuiIngame;");
+                    method.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "net/minecraft/client/gui/GuiIngame", obf ? "func_146158_b" :  "getChatGUI", "()Lnet/minecraft/client/gui/GuiNewChat;", false);
                     method.visitVarInsn(Opcodes.ALOAD, 3);
-                    method.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "net/minecraft/client/gui/GuiNewChat", "addToSentMessages", "(Ljava/lang/String;)V", false);
+                    method.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "net/minecraft/client/gui/GuiNewChat", obf ? "func_146239_a" : "addToSentMessages", "(Ljava/lang/String;)V", false);
                     method.visitLabel(l5);
                     method.visitLineNumber(31, l5);
                     method.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
                     method.visitFieldInsn(Opcodes.GETSTATIC, "net/minecraftforge/client/ClientCommandHandler", "instance", "Lnet/minecraftforge/client/ClientCommandHandler;");
                     method.visitVarInsn(Opcodes.ALOAD, 0);
-                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/gui/GuiScreen", "mc", "Lnet/minecraft/client/Minecraft;");
-                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/Minecraft", "thePlayer", "Lnet/minecraft/client/entity/EntityPlayerSP;");
+                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/gui/GuiScreen", obf ? "field_146297_k" : "mc", "Lnet/minecraft/client/Minecraft;");
+                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/Minecraft", obf ? "field_71439_g" : "thePlayer", "Lnet/minecraft/client/entity/EntityPlayerSP;");
                     method.visitVarInsn(Opcodes.ALOAD, 3);
                     method.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "net/minecraftforge/client/ClientCommandHandler", "executeCommand", "(Lnet/minecraft/command/ICommandSender;Ljava/lang/String;)I", false);
                     Label l7 = new Label();
@@ -85,10 +87,10 @@ public class TransformerGuiScreen implements IClassTransformer {
                     method.visitLineNumber(33, l7);
                     method.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
                     method.visitVarInsn(Opcodes.ALOAD, 0);
-                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/gui/GuiScreen", "mc", "Lnet/minecraft/client/Minecraft;");
-                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/Minecraft", "thePlayer", "Lnet/minecraft/client/entity/EntityPlayerSP;");
+                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/gui/GuiScreen", obf ? "field_146297_k" : "mc", "Lnet/minecraft/client/Minecraft;");
+                    method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/Minecraft", obf ? "field_71439_g" : "thePlayer", "Lnet/minecraft/client/entity/EntityPlayerSP;");
                     method.visitVarInsn(Opcodes.ALOAD, 3);
-                    method.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "net/minecraft/client/entity/EntityPlayerSP", "sendChatMessage", "(Ljava/lang/String;)V", false);
+                    method.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "net/minecraft/client/entity/EntityPlayerSP", obf ? "func_71165_d" : "sendChatMessage", "(Ljava/lang/String;)V", false);
                     Label l8 = new Label();
                     method.visitLabel(l8);
                     method.visitLineNumber(34, l8);
