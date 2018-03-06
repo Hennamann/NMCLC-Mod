@@ -13,7 +13,7 @@ public class TransformerGuiScreen implements IClassTransformer {
 
     public static final String TARGET_CLASS = "net.minecraft.client.gui.GuiScreen";
     public static final String TARGET_METHOD = "sendChatMessage";
-    public static final String TARGET_METHOD_2 = "func_175275_f";
+    public static final String TARGET_METHOD_2 = "func_175281_b";
     public static final String TARGET_DESCRIPTOR = "(Ljava/lang/String;Z)V";
 
     @Override
