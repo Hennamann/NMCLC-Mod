@@ -11,6 +11,7 @@ import java.util.Map;
  * Created by Hennamann(Ole Henrik Stabell) on 06/03/2018.
  */
 @IFMLLoadingPlugin.MCVersion(value = "1.10.2")
+@IFMLLoadingPlugin.SortingIndex(1001)
 public class NMCLCCoreMod implements IFMLLoadingPlugin {
 
     @Override
