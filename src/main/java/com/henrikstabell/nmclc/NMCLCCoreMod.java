@@ -10,9 +10,8 @@ import java.util.Map;
  */
 @IFMLLoadingPlugin.MCVersion(value = "1.10.2")
 @IFMLLoadingPlugin.Name("NMCLC")
-@IFMLLoadingPlugin.TransformerExclusions({ "com.henrikstabell.nmclc.NMCLCCoreMod", "com.henrikstabell.nmclc.NMCLCMod" })
-@IFMLLoadingPlugin.DependsOn("forge")
-@IFMLLoadingPlugin.SortingIndex(1002)
+@IFMLLoadingPlugin.TransformerExclusions({"com.henrikstabell.nmclc.NMCLCCoreMod", "com.henrikstabell.nmclc.NMCLCMod"})
+@IFMLLoadingPlugin.SortingIndex(1001)
 public class NMCLCCoreMod implements IFMLLoadingPlugin {
 
     public static boolean obfuscatedEnvironment = false;

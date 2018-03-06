@@ -79,7 +79,7 @@ public class TransformerGuiScreen implements IClassTransformer {
                     method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/gui/GuiScreen", obf ? "field_146297_k" : "mc", "Lnet/minecraft/client/Minecraft;");
                     method.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/Minecraft", obf ? "field_71439_g" : "thePlayer", "Lnet/minecraft/client/entity/EntityPlayerSP;");
                     method.visitVarInsn(Opcodes.ALOAD, 3);
-                    method.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "net/minecraftforge/client/ClientCommandHandler", "executeCommand", "(Lnet/minecraft/command/ICommandSender;Ljava/lang/String;)I", false);
+                    method.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "net/minecraftforge/client/ClientCommandHandler", obf ? "func_71556_a" : "executeCommand", "(Lnet/minecraft/command/ICommandSender;Ljava/lang/String;)I", false);
                     Label l7 = new Label();
                     method.visitJumpInsn(Opcodes.IFEQ, l7);
                     method.visitInsn(Opcodes.RETURN);
