@@ -1,6 +1,6 @@
 package com.henrikstabell.nmclc;
 
-import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 import java.util.Map;
 
@@ -17,12 +17,12 @@ public class NMCLCCoreMod implements IFMLLoadingPlugin {
 
     @Override
     public String[] getASMTransformerClass() {
-        return new String[]{"com.henrikstabell.nmclc.TransformerGuiScreen"};
+        return new String[]{"com.henrikstabell.nmclc.TransformerGuiChat"};
     }
 
     @Override
     public String getModContainerClass() {
-        return NMCLCMod.class.getName();
+        return "com.henrikstabell.nmclc.NMCLCMod";
     }
 
     @Override
