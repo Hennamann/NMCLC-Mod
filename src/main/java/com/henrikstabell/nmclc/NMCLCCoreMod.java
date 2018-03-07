@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by Hennamann(Ole Henrik Stabell) on 06/03/2018.
  */
-@IFMLLoadingPlugin.MCVersion(value = "1.8.9")
+@IFMLLoadingPlugin.MCVersion(value = "1.7.10")
 @IFMLLoadingPlugin.Name("NMCLC")
 @IFMLLoadingPlugin.TransformerExclusions({"com.henrikstabell.nmclc.NMCLCCoreMod", "com.henrikstabell.nmclc.NMCLCMod"})
 @IFMLLoadingPlugin.SortingIndex(1001)
