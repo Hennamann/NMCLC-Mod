@@ -1,6 +1,5 @@
 package com.henrikstabell.nmclc;
 
-import net.minecraftforge.classloading.FMLForgePlugin;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
 import java.util.Map;
@@ -8,7 +7,7 @@ import java.util.Map;
 /**
  * Created by Hennamann(Ole Henrik Stabell) on 06/03/2018.
  */
-@IFMLLoadingPlugin.MCVersion(value = "1.10.2")
+@IFMLLoadingPlugin.MCVersion(value = "1.9.4")
 @IFMLLoadingPlugin.Name("NMCLC")
 @IFMLLoadingPlugin.TransformerExclusions({"com.henrikstabell.nmclc.NMCLCCoreMod", "com.henrikstabell.nmclc.NMCLCMod"})
 @IFMLLoadingPlugin.SortingIndex(1001)

@@ -11,7 +11,6 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven-publish'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
-
 version = "1.0.0-" + System.getenv('buildNumber')
 group = "com.henrikstabell.nmclc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "nmclc"
@@ -22,7 +21,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.10.2-12.18.3.2511"
+    version = "1.9.4-12.17.0.2051"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -30,7 +29,7 @@ minecraft {
     // stable_#            stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not always work.
     // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20161111"
+    mappings = "snapshot_20160518"
     makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     clientJvmArgs = ["-Dfml.coreMods.load=com.henrikstabell.nmclc.NMCLCCoreMod"]
     serverJvmArgs = ["-Dfml.coreMods.load=com.henrikstabell.nmclc.NMCLCCoreMod"]
@@ -133,7 +132,7 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId 'com.henrikstabell.nmclc'
-            artifactId 'NMCLC-1.10'
+            artifactId 'NMCLC-1.9'
             from components.java
 
             artifact sourcesJar
