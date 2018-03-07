@@ -132,7 +132,7 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId 'com.henrikstabell.nmclc'
-            artifactId 'NMCLC-1.9'
+            artifactId 'NMCLC-1.8'
             from components.java
 
             artifact sourcesJar
