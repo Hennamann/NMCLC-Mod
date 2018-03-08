@@ -17,12 +17,12 @@ public class NMCLCCoreMod implements IFMLLoadingPlugin {
 
     @Override
     public String[] getASMTransformerClass() {
-        return new String[]{"com.henrikstabell.nmclc.TransformerGuiChat"};
+        return new String[]{"com.henrikstabell.nmclc.TransformerGuiChat", "com.henrikstabell.nmclc.TransformerMinecraftServerGui"};
     }
 
     @Override
     public String getModContainerClass() {
-        return "com.henrikstabell.nmclc.NMCLCMod";
+        return com.henrikstabell.nmclc.NMCLCMod.class.getName();
     }
 
     @Override
