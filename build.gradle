@@ -12,7 +12,7 @@ apply plugin: 'maven-publish'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.0.0-" + System.getenv('buildNumber')
+version = "1.2.0-" + System.getenv('buildNumber')
 group = "com.henrikstabell.nmclc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "nmclc-1.12"
 
@@ -22,7 +22,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.1.2583"
+    version = "1.12.2-14.23.2.2611"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -32,6 +32,8 @@ minecraft {
     // simply re-run your setup task after changing the mappings to update your workspace.
     mappings = "snapshot_20171003"
     makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    clientJvmArgs = ["-Dfml.coreMods.load=com.henrikstabell.nmclc.NMCLCCoreMod"]
+    serverJvmArgs = ["-Dfml.coreMods.load=com.henrikstabell.nmclc.NMCLCCoreMod"]
 }
 
 dependencies {
@@ -91,16 +93,28 @@ processResources {
     
 jar {
     classifier = 'universal'
+    manifest {
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+        attributes "FMLCorePlugin": "com.henrikstabell.nmclc.NMCLCCoreMod"
+    }
 }
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.allSource
     classifier = 'sources'
+    manifest {
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+        attributes "FMLCorePlugin": "com.henrikstabell.nmclc.NMCLCCoreMod"
+    }
 }
 
 task deobfJar(type: Jar) {
     from(sourceSets.main.output)
     classifier = 'dev'
+    manifest {
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+        attributes "FMLCorePlugin": "com.henrikstabell.nmclc.NMCLCCoreMod"
+    }
 }
 
 task exportJavadoc(type: Javadoc) {
