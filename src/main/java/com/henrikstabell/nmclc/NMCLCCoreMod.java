@@ -17,7 +17,7 @@ public class NMCLCCoreMod implements IFMLLoadingPlugin {
 
     @Override
     public String[] getASMTransformerClass() {
-        return new String[]{"com.henrikstabell.nmclc.TransformerGuiScreen"};
+        return new String[]{"com.henrikstabell.nmclc.TransformerGuiScreen", "com.henrikstabell.nmclc.TransformerMinecraftServerGui"};
     }
 
     @Override

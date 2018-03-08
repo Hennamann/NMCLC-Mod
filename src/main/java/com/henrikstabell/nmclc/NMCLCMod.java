@@ -2,6 +2,8 @@ package com.henrikstabell.nmclc;
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import net.minecraft.server.dedicated.DedicatedServer;
+import net.minecraft.server.gui.MinecraftServerGui;
 import net.minecraftforge.fml.common.DummyModContainer;
 import net.minecraftforge.fml.common.LoadController;
 import net.minecraftforge.fml.common.ModMetadata;
@@ -9,8 +11,13 @@ import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.Logger;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 /**
@@ -18,7 +25,7 @@ import java.util.Arrays;
  */
 public class NMCLCMod extends DummyModContainer {
 
-    public static final String version = "1.0.0";
+    public static final String version = "1.2.0";
 
     public static Logger logger;
 
