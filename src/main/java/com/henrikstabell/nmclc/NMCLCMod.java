@@ -18,7 +18,7 @@ import java.util.Arrays;
  */
 public class NMCLCMod extends DummyModContainer {
 
-    public static final String version = "1.0.0";
+    public static final String version = "1.2.0";
 
     public static Logger logger;
 
