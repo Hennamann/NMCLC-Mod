@@ -14,7 +14,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.matthewprenger.cursegradle'
 
 // Disable/Remove curseforge task if environmnet variable is gone.
-if System.getenv('curse') = null { tasks.remove(curseforge)’ }
+if (System.getenv('curse') == null) { tasks.remove(curseforge)’ }
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 version = "MC1.12.2-1.2.0-b" + System.getenv('buildNumber')
