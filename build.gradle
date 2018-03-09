@@ -12,8 +12,9 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven-publish'
 apply plugin: 'com.matthewprenger.cursegradle'
-//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
+curseforge.enabled = System.getenv('curse') != null
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 version = "MC1.12.2-1.2.0-b" + System.getenv('buildNumber')
 group = "com.henrikstabell.nmclc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -164,8 +165,6 @@ artifacts {
 }
 
 curseforge {
-
-    if (true) String.valueOf(System.getenv('curse')) { throw new StopExecutionException() }
       
     apiKey = System.getenv('curseAuth') ? System.getenv('curseAuth') : 0 
 
