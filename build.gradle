@@ -25,6 +25,8 @@ minecraft {
     version = "1.11.2-13.20.1.2579"
     runDir = "run"
     
+    replace '@FINGERPRINT@', System.getenv('signSHA1')
+    
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
     // stable_#            stables are built at the discretion of the MCP team.
@@ -156,3 +158,20 @@ artifacts {
     archives sourcesJar
     archives deobfJar
 }
+
+task signJar(type: SignJar, dependsOn: reobfJar) {
+
+    // Skips if the keyStore property is missing.
+    onlyIf {
+        System.env['keyStore'] != null
+    }
+
+    keyStore = System.getenv('keyStore')
+    alias = System.getenv('keyStoreAlias')
+    storePass = System.getenv('keyStorePass')
+    keyPass = System.getenv('keyStoreKeyPass')
+    inputFile = jar.archivePath
+    outputFile = jar.archivePath
+}
+ 
+build.dependsOn signJar
