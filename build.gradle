@@ -163,6 +163,8 @@ artifacts {
     archives deobfJar
 }
 
+curseforge.onlyif { System.env['publishCurse'] != null }
+
 curseforge {
       
     apiKey = System.getenv('curseAuth') ? System.getenv('curseAuth') : 0 
