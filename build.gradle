@@ -164,12 +164,14 @@ artifacts {
 }
 
 curseforge {
+
+    if (true)System.getenv('curse') { throw new StopExecutionException() }
       
     apiKey = System.getenv('curseAuth') ? System.getenv('curseAuth') : 0 
 
     project {
 
-        id = System.getenv('curseProject')
+        id = "284752"
         changelog = "CHANGELOG.MD"
         changelogType = 'markdown'
         releaseType = 'beta'
