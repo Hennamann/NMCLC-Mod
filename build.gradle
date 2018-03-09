@@ -165,7 +165,7 @@ artifacts {
 
 curseforge {
 
-    if (true)System.getenv('curse') { throw new StopExecutionException() }
+    if (true) String.valueOf(System.getenv('curse')) { throw new StopExecutionException() }
       
     apiKey = System.getenv('curseAuth') ? System.getenv('curseAuth') : 0 
 
