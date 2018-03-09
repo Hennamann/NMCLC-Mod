@@ -163,7 +163,7 @@ artifacts {
     archives deobfJar
 }
 
-curseforge.onlyif { System.env['publishCurse'] != null }
+onlyif { System.env['publishCurse'] != null }
 
 curseforge {
       
