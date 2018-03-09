@@ -5,10 +5,12 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.0.9'
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven-publish'
+apply plugin: 'com.matthewprenger.cursegradle'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
@@ -160,6 +162,50 @@ artifacts {
     archives deobfJar
 }
 
+curseforge {
+    
+    onlyIf {
+        System.env['curseAuth'] != null
+    }
+    
+    apiKey = System.getenv('curseAuth') ? System.getenv('curseAuth') : 0 
+
+    project {
+
+        id = "284752"
+        releaseType = 'beta'
+
+        addGameVersion "1.12.2"
+    
+        if (project.hasProperty('curse_requirements') || project.hasProperty('curse_optionals')) {
+
+            mainArtifact(jar) {
+
+                relations {
+
+                    if (project.hasProperty('curse_requirements')) {
+                        def requirements = "${curse_requirements}".split(', ')
+                        requirements.each {
+
+                            requiredLibrary "${it}"
+                        }
+                    }
+
+                    if (project.hasProperty('curse_optionals')) {
+                        def optionals = "${curse_optionals}".split(', ')
+                        optionals.each {
+
+                            optionalLibrary "${it}"
+                        }
+                    }
+                }
+            }
+        }
+        addArtifact(sourcesJar)
+        addArtifact(deobfJar)
+    }
+}
+
 task signJar(type: SignJar, dependsOn: reobfJar) {
 
     // Skips if the keyStore property is missing.
@@ -176,4 +222,3 @@ task signJar(type: SignJar, dependsOn: reobfJar) {
 }
  
 build.dependsOn signJar
-
