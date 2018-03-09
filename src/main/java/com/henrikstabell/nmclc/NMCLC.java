@@ -8,12 +8,13 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = NMCLC.MODID, version = NMCLC.VERSION, name = NMCLC.NAME)
+@Mod(modid = NMCLC.MODID, version = NMCLC.VERSION, name = NMCLC.NAME, certificateFingerprint = NMCLC.FINGERPRINT)
 public class NMCLC
 {
     public static final String MODID = "nmclc";
     public static final String VERSION = "1.2.0";
     public static final String NAME = "NMCLC (NoMoreCapsLockCommands)";
+    public static final String FINGERPRINT = "@FINGERPRINT@";
 
     @SideOnly(Side.CLIENT)
     @EventHandler
