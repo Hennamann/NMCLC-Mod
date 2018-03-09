@@ -164,11 +164,7 @@ artifacts {
 }
 
 curseforge {
-    
-    onlyIf {
-        System.env['curseAuth'] != null
-    }
-    
+      
     apiKey = System.getenv('curseAuth') ? System.getenv('curseAuth') : 0 
 
     project {
