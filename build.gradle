@@ -163,15 +163,13 @@ artifacts {
     archives deobfJar
 }
 
-onlyif { System.env['publishCurse'] != null }
-
 curseforge {
       
     apiKey = System.getenv('curseAuth') ? System.getenv('curseAuth') : 0 
 
     project {
 
-        id = "284752"
+        id = System.getenv('curseProject')
         changelog = "CHANGELOG.MD"
         changelogType = 'markdown'
         releaseType = 'beta'
