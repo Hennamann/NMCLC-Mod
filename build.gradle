@@ -170,6 +170,8 @@ curseforge {
     project {
 
         id = "284752"
+        changelog = "CHANGELOG.MD"
+        changelogType = 'markdown'
         releaseType = 'beta'
 
         addGameVersion "1.12.2"
