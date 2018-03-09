@@ -142,20 +142,3 @@ artifacts {
     archives sourcesJar
     archives deobfJar
 }
-
-task signJar(type: SignJar, dependsOn: reobfJar) {
-
-    // Skips if the keyStore property is missing.
-    onlyIf {
-        System.env['keyStore'] != null
-    }
-
-    keyStore = System.getenv('keyStore')
-    alias = System.getenv('keyStoreAlias')
-    storePass = System.getenv('keyStorePass')
-    keyPass = System.getenv('keyStoreKeyPass')
-    inputFile = jar.archivePath
-    outputFile = jar.archivePath
-}
- 
-build.dependsOn signJar
