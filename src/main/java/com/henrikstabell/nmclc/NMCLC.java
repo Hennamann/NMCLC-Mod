@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = NMCLC.MODID, version = NMCLC.VERSION, name = NMCLC.NAME)
+@Mod(modid = NMCLC.MODID, version = NMCLC.VERSION, name = NMCLC.NAME, certificateFingerprint = "@FINGERPRINT@")
 public class NMCLC
 {
     public static final String MODID = "nmclc";
