@@ -180,7 +180,6 @@ curseforge {
 
             mainArtifact(jar) {
                 
-                displayName = "[1.12]NMCLC $project.version"
                 relations {
 
                     if (project.hasProperty('curse_requirements')) {
