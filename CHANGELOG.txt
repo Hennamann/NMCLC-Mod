@@ -1,0 +1,3 @@
+NMCLC 1.7.10 Beta Build (Scheduled Auto-Upload from TeamCity) Changelog:
+
+- Core fixes.
