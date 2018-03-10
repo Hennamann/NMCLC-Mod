@@ -1,3 +1,0 @@
-# NMCLC 1.12.2 Beta Build (Scheduled Auto-Upload from TeamCity) Changelog
-* Core fixes.
-* Jars are now signed, should stop Forge/FML from screaming about unsigned coremods.
