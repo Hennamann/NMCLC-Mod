@@ -9,14 +9,20 @@ buildscript {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
+        maven { 
+            name = "gradle plugins"
+            url 'https://plugins.gradle.org/m2/' 
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.0.9'
     }
 }
 
 apply plugin: 'forge'
 apply plugin: 'maven-publish'
+apply plugin: 'com.matthewprenger.cursegradle'
 
 version = "MC1.7.10-1.2.0-b" + System.getenv('buildNumber')
 group= "com.henrikstabell.nmclc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -141,4 +147,49 @@ publishing {
 artifacts {
     archives sourcesJar
     archives deobfJar
+}
+
+// Disable/Remove curseforge task if environmnet variable is gone.
+if (System.getenv('curse') == null) {
+curseforge {
+      
+    apiKey = System.getenv('curseAuth') ? System.getenv('curseAuth') : 0 
+
+    project {
+
+        id = "284752"
+        changelog = "CHANGELOG.txt"
+        releaseType = 'beta'
+
+        addGameVersion "1.7.10"
+    
+        if (project.hasProperty('curse_requirements') || project.hasProperty('curse_optionals')) {
+
+            mainArtifact(jar) {
+                
+                displayName = "[1.7]NMCLC $project.version"
+                relations {
+
+                    if (project.hasProperty('curse_requirements')) {
+                        def requirements = "${curse_requirements}".split(', ')
+                        requirements.each {
+
+                            requiredLibrary "${it}"
+                        }
+                    }
+
+                    if (project.hasProperty('curse_optionals')) {
+                        def optionals = "${curse_optionals}".split(', ')
+                        optionals.each {
+
+                            optionalLibrary "${it}"
+                        }
+                    }
+                }
+            }
+        }
+        addArtifact(sourcesJar)
+        addArtifact(deobfJar)
+    }
+}
 }
