@@ -171,8 +171,7 @@ curseforge {
     project {
 
         id = "284752"
-        changelog = "CHANGELOG.MD"
-        changelogType = 'markdown'
+        changelog = "CHANGELOG.txt"
         releaseType = 'beta'
 
         addGameVersion "1.12.2"
@@ -180,7 +179,8 @@ curseforge {
         if (project.hasProperty('curse_requirements') || project.hasProperty('curse_optionals')) {
 
             mainArtifact(jar) {
-
+                
+                displayName = "[1.12]NMCLC $project.version"
                 relations {
 
                     if (project.hasProperty('curse_requirements')) {
