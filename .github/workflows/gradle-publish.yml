@@ -7,8 +7,6 @@
 
 name: Gradle Build
 
-permissions: read-all|write-all
-
 on:
   push:
     branches:
@@ -21,9 +19,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
+    permissions: read-all|write-all
 
     steps:
     - uses: actions/checkout@v2
