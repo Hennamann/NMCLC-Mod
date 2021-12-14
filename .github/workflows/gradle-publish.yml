@@ -58,7 +58,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: build/libs/*.jar
+        asset_path: ${{ env.GITHUB_WORKSPACE }}/build/libs/*.jar
         asset_name: nmclc-1.18.1-1.2.5b-${{ env.GITHUB_RUN_NUMBER }}.jar
         asset_content_type: application/java-archive
 
