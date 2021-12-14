@@ -32,6 +32,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Gradle
+      id: gradle_build
       uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
       with:
         arguments: build
@@ -40,6 +41,7 @@ jobs:
       id: pub_artifact
       uses: actions/upload-artifact@v2
       with:
+        name: deobfJar
         path: build/libs/*.jar
 
     - name: Create Draft Release
@@ -58,8 +60,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ${{ env.GITHUB_WORKSPACE }}/build/libs/*.jar
-        asset_name: nmclc-1.18.1-1.2.5b-${{ env.GITHUB_RUN_NUMBER }}.jar
+        asset_path: build/libs/nmclc-1.18-MC1.18.1-1.2.0-b${{ env.GITHUB_RUN_NUMBER }}.jar
+        asset_name: nmclc-1.18-MC1.18.1-1.2.0-b${{ env.GITHUB_RUN_NUMBER }}.jar
         asset_content_type: application/java-archive
 
     - uses: eregon/publish-release@v1
