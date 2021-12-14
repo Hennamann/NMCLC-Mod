@@ -60,8 +60,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: build/libs/nmclc-1.18-MC1.18.1-1.2.0-b$GITHUB_RUN_NUMBER.jar
-        asset_name: nmclc-1.18-MC1.18.1-1.2.0-b$GITHUB_RUN_NUMBER.jar
+        asset_path: build/libs/nmclc-1.18-MC1.18.1-1.2.0-b $GITHUB_RUN_NUMBER .jar
+        asset_name: nmclc-1.18-MC1.18.1-1.2.0-b $GITHUB_RUN_NUMBER .jar
         asset_content_type: application/java-archive
 
     - uses: eregon/publish-release@v1
