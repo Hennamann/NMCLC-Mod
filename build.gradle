@@ -13,7 +13,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 
-version = "MC1.16.5-1.2.0-b" + System.getenv('buildNumber')
+version = "MC1.16.5-1.2.0-b" + System.getenv('GITHUB_RUN_NUMBER')
 group = "com.henrikstabell.nmclc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "nmclc-1.16"
 
