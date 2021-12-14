@@ -35,8 +35,8 @@ jobs:
       with:
         arguments: build
         
-    - name: Publish artifact
     - uses: actions/upload-artifact@v2
+    - name: Publish artifact
       with:
         name: DeobfJar
         path: build/libs/*.jar
